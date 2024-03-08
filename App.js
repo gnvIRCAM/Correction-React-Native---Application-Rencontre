@@ -1,20 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import ListUserScreen from './screens/ListUserScreen'; 
+import SingleUserScreen from "./screens/SingleUserScreen";
 
 export default function App() {
+  const Stack = createNativeStackNavigator(); 
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    // On définit ici la logique de navigation de l'appli :
+    //    - 2 écrans : ListUserScreen et SingleUserScreen
+    //    - Ecran de démarrage : ListUserScreen
+    
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="ListUserScreen">
+        <Stack.Screen name="ListUserScreen" component={ListUserScreen}/>
+        <Stack.Screen name="SingleUserScreen" component={SingleUserScreen}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
