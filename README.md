@@ -1,4 +1,3 @@
-### Test
 Correction du cours de React Native pour l'application de rencontre. 
 
 ### Installation
